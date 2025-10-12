@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:15
+    container_name: conecta-pr-db
+    environment:
+      POSTGRES_DB: conectapr
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - conecta-pr-network
+
+  backend:
+    build: ./server
+    container_name: conecta-pr-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: conectapr
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    networks:
+      - conecta-pr-network
+
+  frontend:
+    build: ./front
+    container_name: conecta-pr-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - conecta-pr-network
+
+volumes:
+  postgres_data:
+
+networks:
+  conecta-pr-network:
+    driver: bridge
