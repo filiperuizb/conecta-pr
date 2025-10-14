@@ -36,4 +36,10 @@ public abstract class EndpointGenerico<T extends EntidadePadrao> {
         T novaEntidade = getServico().atualizar(entidade, id);
         return  ResponseEntity.ok(novaEntidade);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<T> remover(@PathVariable Long id) {
+        getServico().excluir(id);
+        return ResponseEntity.noContent().build();
+    }
 }

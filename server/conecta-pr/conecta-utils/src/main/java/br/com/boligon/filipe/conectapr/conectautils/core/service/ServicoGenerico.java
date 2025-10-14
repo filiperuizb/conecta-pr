@@ -5,10 +5,8 @@ import br.com.boligon.filipe.conectapr.conectautils.core.repository.RepositorioG
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.swing.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,16 +18,19 @@ public abstract class ServicoGenerico<T extends EntidadePadrao> {
         return getRepositorio().findAll();
     }
 
+    // TO-DO - Implementar paginação
     @Transactional(readOnly = true)
     public Page<T> buscarTodos(Pageable paginacao) {
         return getRepositorio().findAll(paginacao);
     }
 
+    // TO-DO - Implementar paginação com Specification
     @Transactional(readOnly = true)
     public List<T> buscar(Specification<T> spec) {
         return getRepositorio().findAll(spec);
     }
 
+    // TO-DO - Implementar paginação com Specification e Pageable
     @Transactional(readOnly = true)
     public Page<T> buscar(Specification<T> spec, Pageable paginacao) {
         return getRepositorio().findAll(spec, paginacao);
@@ -47,19 +48,17 @@ public abstract class ServicoGenerico<T extends EntidadePadrao> {
 
     @Transactional
     public T salvar(T entidade) {
-        T resultado = getRepositorio().save(entidade);
-        return resultado;
-    }
-
-    @Transactional
-    public List<T> salvarTodos(List<T> entidades) {
-        List<T> resultados = getRepositorio().saveAll(entidades);
-        return resultados;
+        return getRepositorio().save(entidade);
     }
 
     @Transactional
     public void excluir(Long id) {
-        getRepositorio().deleteById(id);
+        if(getRepositorio().existsById(id)) {
+            getRepositorio().deleteById(id);
+        } else {
+            throw new RuntimeException("Registro não encontrado");
+        }
+
     }
 
     @Transactional
