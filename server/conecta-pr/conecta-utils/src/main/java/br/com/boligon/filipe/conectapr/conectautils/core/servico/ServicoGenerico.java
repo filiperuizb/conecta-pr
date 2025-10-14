@@ -1,7 +1,7 @@
-package br.com.boligon.filipe.conectapr.conectautils.core.service;
+package br.com.boligon.filipe.conectapr.conectautils.core.servico;
 
-import br.com.boligon.filipe.conectapr.conectautils.core.domain.EntidadePadrao;
-import br.com.boligon.filipe.conectapr.conectautils.core.repository.RepositorioGenerico;
+import br.com.boligon.filipe.conectapr.conectautils.core.entidade.EntidadePadrao;
+import br.com.boligon.filipe.conectapr.conectautils.core.repositorio.RepositorioGenerico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;

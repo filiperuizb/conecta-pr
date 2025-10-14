@@ -1,4 +1,4 @@
-package br.com.boligon.filipe.conectapr.conectautils.core.domain;
+package br.com.boligon.filipe.conectapr.conectautils.core.entidade;
 
 public interface EntidadePadrao {
     public Long getId();

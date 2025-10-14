@@ -1,7 +1,7 @@
 package br.com.boligon.filipe.conectapr.conectautils.core.endpoint;
 
-import br.com.boligon.filipe.conectapr.conectautils.core.domain.EntidadePadrao;
-import br.com.boligon.filipe.conectapr.conectautils.core.service.ServicoGenerico;
+import br.com.boligon.filipe.conectapr.conectautils.core.entidade.EntidadePadrao;
+import br.com.boligon.filipe.conectapr.conectautils.core.servico.ServicoGenerico;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

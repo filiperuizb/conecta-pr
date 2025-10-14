@@ -1,6 +1,6 @@
-package br.com.boligon.filipe.conectapr.conectautils.core.repository;
+package br.com.boligon.filipe.conectapr.conectautils.core.repositorio;
 
-import br.com.boligon.filipe.conectapr.conectautils.core.domain.EntidadePadrao;
+import br.com.boligon.filipe.conectapr.conectautils.core.entidade.EntidadePadrao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
