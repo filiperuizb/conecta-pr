@@ -45,27 +45,30 @@ public abstract class ServicoGenerico<T extends EntidadePadrao> {
         return getRepositorio().count(spec);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public T salvar(T entidade) {
         T resultado = getRepositorio().save(entidade);
         return resultado;
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public List<T> salvarTodos(List<T> entidades) {
         List<T> resultados = getRepositorio().saveAll(entidades);
         return resultados;
     }
 
-    @Transactional(readOnly = true)
-    public void excluir(T entidade) {
-        getRepositorio().delete(entidade);
-    }
-
-    @Transactional(readOnly = true)
+    @Transactional
     public void excluir(Long id) {
         getRepositorio().deleteById(id);
     }
 
-
+    @Transactional
+    public T atualizar(T entidade, Long id) {
+        return getRepositorio().findById(id)
+                .map(entidadeExistente -> {
+                    entidade.setId(id);
+                    return getRepositorio().save(entidade);
+                })
+                .orElseThrow(() -> new RuntimeException("Registro não encontrado"));
+    }
 }
