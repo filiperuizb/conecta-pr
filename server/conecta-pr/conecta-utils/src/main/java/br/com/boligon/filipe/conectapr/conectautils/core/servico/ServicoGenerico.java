@@ -24,7 +24,7 @@ public abstract class ServicoGenerico<T extends EntidadePadrao> {
         return getRepositorio().findAll(paginacao);
     }
 
-    // TO-DO - Implementar paginação com Specification
+    // TO-DO - Implementar paginação com Specification 
     @Transactional(readOnly = true)
     public List<T> buscar(Specification<T> spec) {
         return getRepositorio().findAll(spec);
