@@ -7,9 +7,9 @@ O que implementar
 
 Configuração inicial:
 
-Projeto Spring Boot (Java 21).
+Projeto Spring Boot (Java 21). - FEITO
 
-Integração com PostgreSQL via JPA + Flyway (migrações).
+Integração com PostgreSQL via JPA + Flyway (migrações). 
 
 Documentação automática da API com Swagger/OpenAPI.
 
@@ -216,5 +216,6 @@ GET /me/dados → exporta dados pessoais do usuário (JSON).
 Auditoria
 
 Registrar operações críticas (quem, quando, o que).
+
 
 Entidade AuditoriaEvento (antes/depois em JSON).
