@@ -11,7 +11,7 @@ Projeto Spring Boot (Java 21). - FEITO
 
 Construção de um CRUD Genérico - FEITO 
 
-Integração com PostgreSQL via JPA + Flyway (migrações). 
+Integração com PostgreSQL via JPA + Flyway (migrações). - FEITO 
 
 Documentação automática da API com Swagger/OpenAPI.
 
@@ -221,4 +221,5 @@ Registrar operações críticas (quem, quando, o que).
 
 
 Entidade AuditoriaEvento (antes/depois em JSON).
+
 
